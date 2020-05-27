@@ -100,10 +100,10 @@ PrivateData = @{
         Tags = @('Sodium', 'MacOS', 'Linux', 'Windows')
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/TylerLeonhardt/PSSodium/blob/master/LICENSE.txt'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/TylerLeonhardt/PSSodium'
 
         # A URL to an icon representing this module.
         # IconUri = ''
