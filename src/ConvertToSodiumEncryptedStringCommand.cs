@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Text;
 using System.Management.Automation;
-using System.Security;
+using Sodium;
 
 namespace PSSodium
 {
@@ -13,7 +14,7 @@ namespace PSSodium
             Position = 0,
             ValueFromPipeline = true,
             ValueFromPipelineByPropertyName = true)]
-        public SecureString Text { get; set; }
+        public string Text { get; set; }
 
         [Parameter(
             Mandatory = true,
@@ -29,15 +30,10 @@ namespace PSSodium
         // This method will be called for each input received from the pipeline to this cmdlet; if no input is received, this method is not called
         protected override void ProcessRecord()
         {
-            string encryptedString = Text.Process<string>((byteArr) =>
-            {
-                var publicKey = Convert.FromBase64String(PublicKey);
-                var sealedPublicKeyBox = Sodium.SealedPublicKeyBox.Create(byteArr, publicKey);
-
-                return Convert.ToBase64String(sealedPublicKeyBox);
-            });
-
-            WriteObject(encryptedString);
+            byte[] byteArr = Encoding.UTF8.GetBytes(Text);
+            byte[] publicKey = Convert.FromBase64String(PublicKey);
+            byte[] sealedPublicKeyBox = SealedPublicKeyBox.Create(byteArr, publicKey);
+            WriteObject(Convert.ToBase64String(sealedPublicKeyBox));
         }
 
         // This method will be called once at the end of pipeline execution; if no input is received, this method is not called

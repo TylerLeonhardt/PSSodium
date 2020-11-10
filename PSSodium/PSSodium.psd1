@@ -12,7 +12,7 @@
 RootModule = 'PSSodium'
 
 # Version number of this module.
-ModuleVersion = '0.2.0'
+ModuleVersion = '0.4.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @('Core', 'Desktop')
@@ -110,6 +110,14 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         ReleaseNotes = @'
+## v0.4.0
+
+Remove use of SecureString and move to normal string
+
+## v0.3.0
+
+Use a different way to convert SecureString into byte array
+
 ## v0.2.0
 
 Take in a SecureString
