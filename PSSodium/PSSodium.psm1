@@ -5,7 +5,7 @@ switch ($true) {
     $IsMacOS {
         Import-Module "$PSScriptRoot/osx-x64/PSSodium.dll"
     }
-    $IsWindows {
+    default {
         if ([System.Environment]::Is64BitProcess) {
             Import-Module "$PSScriptRoot/win-x64/PSSodium.dll"
         } else {
