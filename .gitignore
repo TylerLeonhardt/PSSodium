@@ -365,3 +365,4 @@ PSSodium/linux-x64
 PSSodium/osx-x64
 PSSodium/win-x64
 PSSodium/win-x86
+PSSodium/osx-arm64
