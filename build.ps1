@@ -1,8 +1,9 @@
 $targetRuntimes = @(
-    'osx-x64'
     'linux-x64'
     'win-x64'
     'win-x86'
+    'osx-arm64'
+    'osx-x64'
 )
 
 foreach ($tr in $targetRuntimes) {
